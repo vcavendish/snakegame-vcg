@@ -1,3 +1,6 @@
+scene.onHitWall(SpriteKind.Player, function (sprite, location) {
+    game.over(false)
+})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(0, -50)
 })
@@ -44,6 +47,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 let fruit: Sprite = null
 let snakeHead: Sprite = null
 let snakeLength = 0
+tiles.setCurrentTilemap(tilemap`level1`)
 snakeLength = 1
 let FruitCount = 1
 snakeHead = sprites.create(img`
@@ -64,7 +68,11 @@ snakeHead = sprites.create(img`
     a a a a . . . . . . . . . . 2 a 
     a a a a a a a a a a a a a a a a 
     `, SpriteKind.Player)
-snakeHead.setStayInScreen(true)
+let snake = sprites.allOfKind(SpriteKind.Player)
+scene.cameraFollowSprite(snakeHead)
+snakeHead.setStayInScreen(false)
+snakeHead.setBounceOnWall(false)
+snakeHead.setFlag(SpriteFlag.DestroyOnWall, true)
 fruit = sprites.create(img`
     . . f f . 7 7 7 . . . . . . . . 
     . . 7 f f 7 7 7 . . . . . . . . 
