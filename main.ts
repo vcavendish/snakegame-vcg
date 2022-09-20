@@ -86,3 +86,4 @@ fruit = sprites.create(img`
 fruit.setPosition(randint(0, 160), randint(0, 120))
 info.setScore(0)
 info.startCountdown(5)
+snakeHead.setVelocity(50, 0)
