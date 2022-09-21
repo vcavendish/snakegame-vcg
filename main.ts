@@ -6,7 +6,6 @@ scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath4, function (sprit
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(0, -50)
-    moveSnake()
 })
 scene.onHitWall(SpriteKind.Player, function (sprite, location) {
     game.over(false)
@@ -41,7 +40,6 @@ scene.onOverlapTile(SpriteKind.Player, sprites.builtin.brick, function (sprite, 
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(-50, 0)
-    moveSnake()
 })
 info.onCountdownEnd(function () {
     info.changeScoreBy(50)
@@ -70,13 +68,12 @@ function growSnake () {
             a . . a a . . . . . . . . 2 2 a 
             a a a a . . . . . . . . . . 2 a 
             a a a a a a a a a a a a a a a a 
-            `, SpriteKind.TrailingSnake)
+            `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(snake[1 + index], sprites.castle.tileGrass3)
     }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(50, 0)
-    moveSnake()
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath5, function (sprite, location) {
     tiles.setTileAt(location, sprites.castle.tileGrass3)
@@ -93,7 +90,6 @@ function moveSnake () {
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(0, 50)
-    moveSnake()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
     sprite.destroy(effects.fire, 300)
@@ -115,6 +111,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath6, function (sprite, location) {
     tiles.setTileAt(location, sprites.castle.tileGrass3)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprite.destroy(effects.fire, 300)
+    game.over(false)
 })
 let fruit: Sprite = null
 let snakeLength = 0
