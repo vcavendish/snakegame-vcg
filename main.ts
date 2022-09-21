@@ -72,7 +72,7 @@ function growSnake () {
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(snake[1 + index], sprites.castle.tileGrass3)
     }
-    music.thump.play()
+    music.knock.play()
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(50, 0)
