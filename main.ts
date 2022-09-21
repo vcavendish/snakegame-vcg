@@ -44,35 +44,10 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 info.onCountdownEnd(function () {
     info.changeScoreBy(50)
     info.startCountdown(5)
-    growSnake()
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath9, function (sprite, location) {
-    tiles.setTileAt(location, sprites.castle.tileGrass3)
+    spawnEnemy()
 })
 function growSnake () {
     snakeLength = 1 + snakeLength
-    for (let index = 0; index <= snakeLength; index++) {
-        snake[1 + index] = sprites.create(img`
-            a a a a a a a a a a a a a a a a 
-            a a a . . . . . . . . . . 2 2 a 
-            a . a a . . . . . . . . 2 2 . a 
-            a . . . 7 7 7 7 7 7 7 7 . . . a 
-            a . . . 7 7 7 8 8 8 7 7 . . . a 
-            a . . . 7 8 7 7 8 7 8 7 . . . a 
-            a . . . 7 8 8 7 7 8 8 7 . . . a 
-            a . . . 7 5 5 5 7 7 8 7 . . . a 
-            a . . . 7 a 8 a 5 7 7 7 . . . a 
-            a . . . 7 a 9 a a 9 7 7 . . . a 
-            a . . . 7 7 7 7 7 7 7 7 . . . a 
-            a . . . . . a . . . 2 2 . . . a 
-            a . . . . a a . . . 2 . 2 2 . a 
-            a . . a a . . . . . . . . 2 2 a 
-            a a a a . . . . . . . . . . 2 a 
-            a a a a a a a a a a a a a a a a 
-            `, SpriteKind.Enemy)
-        tiles.placeOnRandomTile(snake[1 + index], sprites.castle.tileGrass3)
-    }
-    music.knock.play()
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(50, 0)
@@ -111,6 +86,33 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     spawnFood()
     info.changeScoreBy(10)
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath7, function (sprite, location) {
+    tiles.setTileAt(location, sprites.castle.tileGrass3)
+})
+function spawnEnemy () {
+    for (let index = 0; index <= snakeLength; index++) {
+        snake[1 + index] = sprites.create(img`
+            a a a a a a a a a a a a a a a a 
+            a a a . . . . . . . . . . 2 2 a 
+            a . a a . . . . . . . . 2 2 . a 
+            a . . . 7 7 7 7 7 7 7 7 . . . a 
+            a . . . 7 7 7 8 8 8 7 7 . . . a 
+            a . . . 7 8 7 7 8 7 8 7 . . . a 
+            a . . . 7 8 8 7 7 8 8 7 . . . a 
+            a . . . 7 5 5 5 7 7 8 7 . . . a 
+            a . . . 7 a 8 a 5 7 7 7 . . . a 
+            a . . . 7 a 9 a a 9 7 7 . . . a 
+            a . . . 7 7 7 7 7 7 7 7 . . . a 
+            a . . . . . a . . . 2 2 . . . a 
+            a . . . . a a . . . 2 . 2 2 . a 
+            a . . a a . . . . . . . . 2 2 a 
+            a a a a . . . . . . . . . . 2 a 
+            a a a a a a a a a a a a a a a a 
+            `, SpriteKind.Enemy)
+        tiles.placeOnRandomTile(snake[1 + index], sprites.castle.tileGrass3)
+    }
+    music.knock.play()
+}
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath6, function (sprite, location) {
     tiles.setTileAt(location, sprites.castle.tileGrass3)
 })
