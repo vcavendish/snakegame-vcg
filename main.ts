@@ -44,6 +44,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 info.onCountdownEnd(function () {
     info.changeScoreBy(50)
     info.startCountdown(5)
+    growSnake()
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath9, function (sprite, location) {
     tiles.setTileAt(location, sprites.castle.tileGrass3)
@@ -71,6 +72,7 @@ function growSnake () {
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(snake[1 + index], sprites.castle.tileGrass3)
     }
+    music.thump.play()
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(50, 0)
