@@ -42,10 +42,13 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(-50, 0)
 })
 info.onCountdownEnd(function () {
-    info.startCountdown(5)
     growSnake()
     spawnEnemy()
     info.changeScoreBy(-2)
+    info.startCountdown(5)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath9, function (sprite, location) {
+    tiles.setTileAt(location, sprites.castle.tileGrass3)
 })
 function growSnake () {
     snakeLength = 1 + snakeLength
@@ -82,7 +85,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath8, function (sprit
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     otherSprite.destroy(effects.trail, 200)
     snakeLength = snakeLength + 1
-    music.powerUp.play()
+    music.powerUp.playUntilDone()
     growSnake()
     spawnFood()
     info.changeScoreBy(9)
@@ -112,7 +115,7 @@ function spawnEnemy () {
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(snake[1 + index], sprites.castle.tileGrass3)
     }
-    music.knock.play()
+    music.knock.playUntilDone()
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath6, function (sprite, location) {
     tiles.setTileAt(location, sprites.castle.tileGrass3)
