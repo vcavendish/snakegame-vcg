@@ -8,8 +8,16 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(0, -50)
 })
 scene.onHitWall(SpriteKind.Player, function (sprite, location) {
+    bgMusicOn = 0
+    music.stopAllSounds()
     game.over(false)
 })
+function bgMusic1Definition () {
+    music.playMelody("C5 B C5 A F A B G ", 125)
+    music.playMelody("C5 B C5 A F A B G ", 125)
+    music.playMelody("C5 B C5 A B G F A ", 125)
+    music.playMelody("C5 A F A D A B G ", 125)
+}
 function spawnFood () {
     fruit = sprites.create(img`
         . . f f . 7 7 7 . . . . . . . . 
@@ -42,10 +50,18 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(-50, 0)
 })
 function backgroundMusic1 () {
-    music.playMelody("C5 B C5 A F A B G ", 125)
-    music.playMelody("C5 B C5 A F A B G ", 125)
-    music.playMelody("F A G B F A G B ", 125)
-    music.playMelody("C5 A F A D A B G ", 125)
+    if (bgMusicOn == 1) {
+        music.playMelody("C5 B C5 A F A B G ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("C5 B C5 A F A B G ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("C5 B C5 A B G F A ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("C5 A F A D A B G ", 125)
+    }
 }
 info.onCountdownEnd(function () {
     growSnake()
@@ -80,6 +96,8 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
     sprite.destroy(effects.fire, 300)
+    bgMusicOn = 0
+    music.stopAllSounds()
     game.over(false)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath1, function (sprite, location) {
@@ -128,9 +146,12 @@ scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath6, function (sprit
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprite.destroy(effects.fire, 300)
+    bgMusicOn = 0
+    music.stopAllSounds()
     game.over(false)
 })
 let fruit: Sprite = null
+let bgMusicOn = 0
 let snakeLength = 0
 let snakeHead: Sprite = null
 let snake: Sprite[] = []
@@ -147,6 +168,7 @@ snakeHead.setBounceOnWall(false)
 snakeHead.setFlag(SpriteFlag.DestroyOnWall, true)
 info.setScore(0)
 spawnFood()
+bgMusicOn = 1
 forever(function () {
     backgroundMusic1()
 })
