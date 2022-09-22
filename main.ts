@@ -107,6 +107,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath8, function (sprit
     tiles.setTileAt(location, sprites.castle.tileGrass3)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.stopCountdown()
     otherSprite.destroy(effects.trail, 200)
     snakeLength = snakeLength + 1
     music.powerUp.playUntilDone()
