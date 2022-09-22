@@ -41,6 +41,12 @@ scene.onOverlapTile(SpriteKind.Player, sprites.builtin.brick, function (sprite, 
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(-50, 0)
 })
+function backgroundMusic1 () {
+    music.playMelody("C5 B C5 A F A B G ", 125)
+    music.playMelody("C5 B C5 A F A B G ", 125)
+    music.playMelody("F A G B F A G B ", 125)
+    music.playMelody("C5 A F A D A B G ", 125)
+}
 info.onCountdownEnd(function () {
     growSnake()
     spawnEnemy()
@@ -141,3 +147,6 @@ snakeHead.setBounceOnWall(false)
 snakeHead.setFlag(SpriteFlag.DestroyOnWall, true)
 info.setScore(0)
 spawnFood()
+forever(function () {
+    backgroundMusic1()
+})
