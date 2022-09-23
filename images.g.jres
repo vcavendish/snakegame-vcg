@@ -4,6 +4,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "SnakeHead"
     },
+    "image2": {
+        "data": "hwQQABAAAACqqqqqqqqqqqoAAAAAAACqqgoAAAAAAKoKCgAAAACgqgpwd3d3B6CgCnCHWKoHCqAKcHdYmKcKoApweFeqBwCgCnCId6UHAKAKcHh4lwcAoApwh4h3JwKgCnB3d3cnAKAKAgAAAAACoCoCAAAAACKgKgAAAAAAIKKqqqqqqqqqqg==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "NoPlayerSquare"
+    },
+    "y~$L{S4[X(D}l~1ol%~V": {
+        "data": "hwQQABAAAAAAACACAAAAAAAHIiACAAAAfycCIiICAAD/ICAiACIAAPAgIiIAIAIAdy8gAgICIAJ3LyIAAgIAAnf/AiIiIAACACIiICIgAAIAAgIgICICAgACIiIiIgICACIAAiICIgIAIAAiIgAiAgAgAgAgIiICAAACACIiAAAAACAiAgAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "BerryFruity"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

@@ -87,11 +87,13 @@ function spawnFood () {
     tiles.placeOnRandomTile(fruit, sprites.castle.tileGrass2)
     info.startCountdown(5)
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`noPlayerAllowedTile`, function (sprite, location) {
+    bgMusicOn = 0
+    music.stopAllSounds()
+    game.over(false)
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath2, function (sprite, location) {
     tiles.setTileAt(location, sprites.castle.tileGrass3)
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.builtin.brick, function (sprite, location) {
-	
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(-50, 0)
@@ -176,26 +178,13 @@ scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath7, function (sprit
     tiles.setTileAt(location, sprites.castle.tileGrass3)
 })
 function spawnEnemy () {
+    freeSpawnPoints = tiles.getTilesByType(sprites.castle.tileGrass3)
     for (let index = 0; index <= snakeLength; index++) {
-        snake[1 + index] = sprites.create(img`
-            a a a a a a a a a a a a a a a a 
-            a a a . . . . . . . . . . 2 2 a 
-            a . a a . . . . . . . . 2 2 . a 
-            a . . . 7 7 7 7 7 7 7 7 . . . a 
-            a . . . 7 7 7 8 8 8 7 7 . . . a 
-            a . . . 7 8 7 7 8 7 8 7 . . . a 
-            a . . . 7 8 8 7 7 8 8 7 . . . a 
-            a . . . 7 5 5 5 7 7 8 7 . . . a 
-            a . . . 7 a 8 a 5 7 7 7 . . . a 
-            a . . . 7 a 9 a a 9 7 7 . . . a 
-            a . . . 7 7 7 7 7 7 7 7 . . . a 
-            a . . . . . a . . . 2 2 . . . a 
-            a . . . . a a . . . 2 . 2 2 . a 
-            a . . a a . . . . . . . . 2 2 a 
-            a a a a . . . . . . . . . . 2 a 
-            a a a a a a a a a a a a a a a a 
-            `, SpriteKind.Enemy)
-        tiles.placeOnRandomTile(snake[1 + index], sprites.castle.tileGrass3)
+        if (freeSpawnPoints.length > 0) {
+            iEnemySpawn = randint(0, freeSpawnPoints.length)
+            cSpawn = freeSpawnPoints.removeAt(iEnemySpawn)
+            tiles.setTileAt(cSpawn, assets.tile`noPlayerAllowedTile`)
+        }
     }
     music.knock.playUntilDone()
 }
@@ -208,6 +197,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     music.stopAllSounds()
     game.over(false)
 })
+let cSpawn: tiles.Location = null
+let iEnemySpawn = 0
+let freeSpawnPoints: tiles.Location[] = []
 let fruit: Sprite = null
 let bgMusicOn = 0
 let snakeLength = 0
