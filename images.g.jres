@@ -1,9 +1,4 @@
 {
-    "image1": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwd3d3BwAAAHCHWKoHAAAAcHdYmAcAAABweFeqBwAAAHCId6UHAAAAcHh4lwcAAABwh4h3BwAAAHB3d3cHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "SnakeHead"
-    },
     "image2": {
         "data": "hwQQABAAAACqqqqqqqqqqqoAAAAAAACqqgoAAAAAAKoKCgAAAACgqgpwd3d3B6CgCnCHWKoHCqAKcHdYmKcKoApweFeqBwCgCnCId6UHAKAKcHh4lwcAoApwh4h3JwKgCnB3d3cnAKAKAgAAAAACoCoCAAAAACKgKgAAAAAAIKKqqqqqqqqqqg==",
         "mimeType": "image/x-mkcd-f4",
@@ -13,6 +8,11 @@
         "data": "hwQQABAAAAAAACACAAAAAAAHIiACAAAAfycCIiICAAD/ICAiACIAAPAgIiIAIAIAdy8gAgICIAJ3LyIAAgIAAnf/AiIiIAACACIiICIgAAIAAgIgICICAgACIiIiIgICACIAAiICIgIAIAAiIgAiAgAgAgAgIiICAAACACIiAAAAACAiAgAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "BerryFruity"
+    },
+    "image1": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACHWKoAAAAAAHdYmAAAAAAAeFeqAAAAAACId6UAAAAAAHh4lwAAAAAAh4h3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "SnakeHead"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

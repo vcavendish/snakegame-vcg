@@ -178,7 +178,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath7, function (sprit
     tiles.setTileAt(location, sprites.castle.tileGrass3)
 })
 function spawnEnemy () {
-    freeSpawnPoints = tiles.getTilesByType(sprites.castle.tileGrass3)
+    freeSpawnPoints = tiles.getTilesByType(sprites.castle.tileGrass1)
     for (let index = 0; index <= snakeLength; index++) {
         if (freeSpawnPoints.length > 0) {
             iEnemySpawn = randint(0, freeSpawnPoints.length)
@@ -197,6 +197,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     music.stopAllSounds()
     game.over(false)
 })
+let grassGrowing: tiles.Location[] = []
 let cSpawn: tiles.Location = null
 let iEnemySpawn = 0
 let freeSpawnPoints: tiles.Location[] = []
@@ -219,6 +220,12 @@ snakeHead.setFlag(SpriteFlag.DestroyOnWall, true)
 info.setScore(0)
 spawnFood()
 bgMusicOn = 1
+game.onUpdateInterval(800, function () {
+    grassGrowing = tiles.getTilesByType(sprites.castle.tileGrass3)
+    for (let value of grassGrowing) {
+        tiles.setTileAt(value, sprites.castle.tileGrass1)
+    }
+})
 forever(function () {
     backgroundMusic2()
 })
