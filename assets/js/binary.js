@@ -1,4 +1,4 @@
-// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.8.30/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.8","target":"arcade","targetVersion":"1.8.30","repo":"vcavendish/snakegame-vcg"}
+// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.8.30/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.9","target":"arcade","targetVersion":"1.8.30","repo":"vcavendish/snakegame-vcg"}
 // total=1664784 new=7.92% cached=86.91% other=5.18%
 (function (ectx) {
 'use strict';
@@ -493,7 +493,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P21702(s) {
+function _main___P21755(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1178,13 +1178,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P21702.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
-_main___P21702.continuations = [  ]
+_main___P21755.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
+_main___P21755.continuations = [  ]
 
-function _main___P21702_mk(s) {
+function _main___P21755_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P21702, depth: s.depth + 1,
+        parent: s, fn: _main___P21755, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -2640,8 +2640,8 @@ switch (step) {
   case 0:
 
     s.value___6984 = undefined;
-    s.unnamed118___U1 = undefined;
-    s.unnamed119___U2 = undefined;
+    s.unnamed130___U1 = undefined;
+    s.unnamed131___U2 = undefined;
     s.tmp_0 = tiles_getTilesByType__P2514_mk(s);
     s.tmp_0.arg0 = globals.tileGrass3___3379;
     s.callLocIdx = 154; s.pc = 3; return s.tmp_0;
@@ -2649,15 +2649,15 @@ switch (step) {
     r0 = s.retval;
     globals.grassGrowing___4048 = (r0);
     s.value___6984 = (undefined);
-    s.unnamed118___U1 = (globals.grassGrowing___4048);
-    s.unnamed119___U2 = (0);
+    s.unnamed130___U1 = (globals.grassGrowing___4048);
+    s.unnamed131___U2 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed119___U2;
-    r0 = pxsim_Array__length(s.unnamed118___U1);
+    s.tmp_0 = r0 = s.unnamed131___U2;
+    r0 = pxsim_Array__length(s.unnamed130___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed118___U1, s.unnamed119___U2);
+    r0 = pxsim_Array__getAt(s.unnamed130___U1, s.unnamed131___U2);
     s.value___6984 = (r0);
     s.tmp_2 = tiles_setTileAt__P2504_mk(s);
     s.tmp_2.arg0 = s.value___6984;
@@ -2665,11 +2665,11 @@ switch (step) {
     s.callLocIdx = 155; s.pc = 4; return s.tmp_2;
   case 4:
     r0 = s.retval;
-    r0 = (s.unnamed119___U2 + 1);
-    s.unnamed119___U2 = (r0);
+    r0 = (s.unnamed131___U2 + 1);
+    s.unnamed131___U2 = (r0);
     { step = 1; continue; }
   case 2:
-    s.unnamed118___U1 = (undefined);
+    s.unnamed130___U1 = (undefined);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
@@ -2685,8 +2685,8 @@ function inline__P6979_mk(s) {
   tmp_1: undefined,
   tmp_2: undefined,
   value___6984: undefined,
-  unnamed118___U1: undefined,
-  unnamed119___U2: undefined,
+  unnamed130___U1: undefined,
+  unnamed131___U2: undefined,
 } }
 
 
@@ -56504,5 +56504,5 @@ const sprites_BaseSpriteSayRenderer__C2048_VT = mkVTable({
 
 const breakpoints = setupDebugger(1, ["transparency16___4059","tile2___4060","TrailingSnake___4036","snakeHead___4055","bgMusicOn___4053","snakeLength___4054","snake___4056","grassGrowing___4048","fruit___4052","freeSpawnPoints___4051","iEnemySpawn___4050","cSpawn___4049"])
 
-return _main___P21702
+return _main___P21755
 })
