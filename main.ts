@@ -12,11 +12,58 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
     music.stopAllSounds()
     game.over(false)
 })
+function backgroundMusic2 () {
+    if (bgMusicOn == 1) {
+        music.playMelody("C5 B C5 A F A B G ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("C5 B C5 A F A B G ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("F A G B F A G B ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("C5 G E G F A G B ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("C5 B C5 A F A B G ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("C5 B C5 A F A B G ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("F A G B F A G B ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("C5 G E G F A G B ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("C5 B C5 A F A B G ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("F - F F G - G G ", 125)
+    }
+    if (bgMusicOn == 1) {
+        music.playMelody("A - A A B - B B ", 125)
+    }
+}
+function bgMusic2DefinitionSectionA1 () {
+    music.playMelody("C5 B C5 A F A B G ", 125)
+    music.playMelody("C5 B C5 A F A B G ", 125)
+    music.playMelody("F A G B F A G B ", 125)
+    music.playMelody("C5 G E G F A G B ", 125)
+}
 function bgMusic1Definition () {
     music.playMelody("C5 B C5 A F A B G ", 125)
     music.playMelody("C5 B C5 A F A B G ", 125)
     music.playMelody("C5 B C5 A B G F A ", 125)
     music.playMelody("C5 A F A D A B G ", 125)
+}
+function bgMusic2DefinitionSectionA2 () {
+    music.playMelody("C5 B C5 A F A B G ", 125)
+    music.playMelody("C5 B C5 A F A B G ", 125)
+    music.playMelody("F A G B F A G B ", 125)
+    music.playMelody("C5 G E G F A G B ", 125)
 }
 function spawnFood () {
     fruit = sprites.create(img`
@@ -49,6 +96,11 @@ scene.onOverlapTile(SpriteKind.Player, sprites.builtin.brick, function (sprite, 
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     snakeHead.setVelocity(-50, 0)
 })
+function bgMusic2Definition () {
+    bgMusic2DefinitionSectionA1()
+    bgMusic2DefinitionSectionA2()
+    bgMusic2DefinitionSectionB1()
+}
 function backgroundMusic1 () {
     if (bgMusicOn == 1) {
         music.playMelody("C5 B C5 A F A B G ", 125)
@@ -62,6 +114,11 @@ function backgroundMusic1 () {
     if (bgMusicOn == 1) {
         music.playMelody("C5 A F A D A B G ", 125)
     }
+}
+function bgMusic2DefinitionSectionB1 () {
+    music.playMelody("C5 B C5 A F A B G ", 125)
+    music.playMelody("F - F F G - G G ", 125)
+    music.playMelody("A - A A B - B B ", 125)
 }
 info.onCountdownEnd(function () {
     growSnake()
@@ -171,5 +228,5 @@ info.setScore(0)
 spawnFood()
 bgMusicOn = 1
 forever(function () {
-    backgroundMusic1()
+    backgroundMusic2()
 })
